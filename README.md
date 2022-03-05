@@ -21,3 +21,7 @@ Each mint costs 0.001 eth. Make sure you have sufficient eth. Otherwise, get som
 2. Click "Mint NFT". Wait for minting to complete. Once done, you should see the Token Id and metadata of the item shown in the logs.
 3. Check the mint transaction from the URL returned in the logs.
 
+
+<img src="https://github.com/violetwee/ERC721_MerkleTree_Frontend/blob/master/images/wallet_not_connected.png" width="800px" height="auto"/>
+  
+<img src="https://github.com/violetwee/ERC721_MerkleTree_Frontend/blob/master/images/mints.png" width="800px" height="auto"/>
