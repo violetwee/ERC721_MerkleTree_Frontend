@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 import contract from "./contracts/GameItem.json";
 
-const CONTRACT_ADDRESS = "0x6e5259BeA312A3B084245B2F1f20FBd704044Aca";
+const CONTRACT_ADDRESS = "0x53E0111741076cDF614c48ca8Addde3BC6917BFb";
 const ABI = contract.abi;
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         appendLog("Ethereum object does not exist");
       }
     } catch (err) {
-      appendLog(err);
+      appendLog(err.message);
     }
   }
 
