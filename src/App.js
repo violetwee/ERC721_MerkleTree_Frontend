@@ -3,12 +3,19 @@ import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 import contract from "./contracts/GameItem.json";
 
+// Set the contract address and its ABI in order for us to connect and communicate with the smart contract
 const CONTRACT_ADDRESS = "0x53E0111741076cDF614c48ca8Addde3BC6917BFb";
 const ABI = contract.abi;
 
 function App() {
+  // Track if an account is already connected
   const [currentAccount, setCurrentAccount] = useState(null);
 
+  /**
+   * Called by connectWalletButton. 
+   * Prompts user to connect to an account on Metamask.
+   * Set as currentAccount when connected.
+   */
   const connectWalletHandler = async () => {
     const { ethereum } = window;
 
@@ -25,6 +32,10 @@ function App() {
     }
   }
 
+  /**
+   * Called by mintNftButton.
+   * Prompts user to make payment for the NFT and mints an NFT.
+   */
   const mintNftHandler = async () => {
     try {
       const { ethereum } = window;
@@ -47,6 +58,7 @@ function App() {
     }
   }
 
+  // Component for Connect Wallet button
   const connectWalletButton = () => {
     return (
       <button onClick={connectWalletHandler} className='cta-button connect-wallet-button'>
@@ -55,6 +67,7 @@ function App() {
     )
   }
 
+  // Compoennt for Mint NFT button
   const mintNftButton = () => {
     return (
       <button onClick={mintNftHandler} className='cta-button mint-nft-button'>
@@ -63,17 +76,20 @@ function App() {
     )
   }
 
+  // Compoennt to show logs
   const logTextArea = () => {
     return (
       <textarea id="log" rows="45" cols="200" disabled />
     )
   }
 
+  // Append message to log on screen
   const appendLog = (msg) => {
     document.getElementById("log").append(msg + "\r\n");
   }
 
   useEffect(() => {
+    // Check if Metamask wallet exists, and if we already have a connected account
     const checkWalletIsConnected = async () => {
       const { ethereum } = window;
 
@@ -94,6 +110,7 @@ function App() {
       }
     }
 
+    // Listen for events emitted from the smart contract
     const start = () => {
       const { ethereum } = window;
 
